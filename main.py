@@ -9,7 +9,16 @@ def initiate():
     alpha = input("Include alphabets : ") == "y"
     num = input("Include numerics : ") == "y"
     special = input("Include special characters : ") == "y"
-    length = int(input("Length : "))
+    length = 0
+    while True:
+        try:
+            length = int(input("Length : "))
+        except:
+            pass
+        if length and 1 <= length <= 100:
+            break
+        print("Invalid input. Try again!\nChoose a number between 1 and 100.")
+
     print(f"Password : {generate_password(length, alpha, num, special)}")
 
 
